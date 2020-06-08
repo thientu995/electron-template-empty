@@ -52,7 +52,7 @@
       ]
     },
     "squirrelWindows": {
-
+      "iconUrl": "https://raw.githubusercontent.com/thientu995/electron-template-empty/master/favicon.ico"
     },
     "linux": {
       "icon": "assets/icon/icon_256.ico",
