@@ -23,6 +23,7 @@
     "debug": "electron . --debug",
     "pack": "electron-builder --dir",
     "build": "electron-builder",
+    "build:win": "electron-builder --win",
     "build:all": "electron-builder -wm"
   },
   "postinstall": "electron-builder install-app-deps",
