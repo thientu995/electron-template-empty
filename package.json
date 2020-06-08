@@ -33,7 +33,6 @@
     "appId": "com.company.appName",
     "productName": "Electron Template Empty",
     "copyright": "Copyright © ${author}",
-    "artifactName": "${productName} ${version}.${ext}",
     "asar": true,
     "afterPack": "modules/scriptsInstall/obfuscator.js",
     "mac": {
