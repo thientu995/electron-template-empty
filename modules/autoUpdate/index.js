@@ -10,7 +10,7 @@ let updateFeed = null;
 console.log(`> Module: ${__filename}`);
 module.exports = function (mainWindow) {
     const platform = `${os.platform()}_${os.arch()}`
-    const nutsURL = 'https://electron-autoupdater-starter-server.now.sh'
+    const nutsURL = 'electron-template-empty-442dazr6l.now.sh'
 
     updateFeed = `${nutsURL}/update/${os.platform()}/${appVersion}`
     if (updateFeed == null || updateFeed == '') {
