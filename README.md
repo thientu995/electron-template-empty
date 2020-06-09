@@ -19,3 +19,6 @@ cd electron-template-empty
 # Install dependencies and run the app
 npm install && npm start
 ```
+
+## UI:
+![IntroMacOS](https://user-images.githubusercontent.com/15050790/84103888-783a4380-aa3e-11ea-95e3-00e722843dce.png)
