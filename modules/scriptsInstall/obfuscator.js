@@ -8,7 +8,6 @@ const folderExtract = 'obfuscator';
 const fileApp = 'app.asar';
 let resourcesFolder = '';
 module.exports.default = async function (context) {
-    return;
     const APP_NAME = context.packager.appInfo.productFilename;
     const APP_OUT_DIR = context.appOutDir;
     const PLATFORM = context.packager.platform.name;

@@ -1,10 +1,11 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, Tray, Menu, ipcMain } = require('electron');
+const path = require('path');
 const autoUpdate = require('./modules/autoUpdate');
 const dialog = require('./modules/dialog');
 const menuSys = require('./modules/menuSystem');
 const menuSystem = new menuSys(Menu);
-const IsDebug = true;/--debug/.test(process.argv[2]);
+const IsDebug = true; /--debug/.test(process.argv[2]);
 let showConfirmCloseApp = true;
 let mainWindow = null;
 let menuTray = null;
@@ -119,7 +120,7 @@ function createWindow() {
 
   // add menu
   menuSystem.Bar();
-  menuTray = menuTray || new Tray('./assets/icon/icon_16.png');// file icon 16x16 is the best
+  menuTray = menuTray || new Tray(path.join(__dirname, 'assets/icon/icon_16.png'));// file icon 16x16 is the best
   menuSystem.Tray(menuTray);
 
 }
