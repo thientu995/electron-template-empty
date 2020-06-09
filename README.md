@@ -21,4 +21,6 @@ npm install && npm start
 ```
 
 ## UI:
+### See more [MacOS](https://github.com/thientu995/electron-template-empty/issues/1)
+
 ![IntroMacOS](https://user-images.githubusercontent.com/15050790/84103888-783a4380-aa3e-11ea-95e3-00e722843dce.png)
