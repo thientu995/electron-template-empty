@@ -24,3 +24,8 @@ npm install && npm start
 ### See more [MacOS](https://github.com/thientu995/electron-template-empty/issues/1)
 
 ![IntroMacOS](https://user-images.githubusercontent.com/15050790/84103888-783a4380-aa3e-11ea-95e3-00e722843dce.png)
+
+### See more [Windows](https://github.com/thientu995/electron-template-empty/issues/2)
+![IntoWindows](https://user-images.githubusercontent.com/15050790/84107338-935d8100-aa47-11ea-99cc-157d447b1e26.png)
+
+
