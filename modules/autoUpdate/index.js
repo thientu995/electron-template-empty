@@ -1,7 +1,6 @@
 const electron = require('electron')
 const autoUpdater = electron.autoUpdater
 const os = require('os')
-const dialog = require('../dialog')
 const appVersion = require('../../package.json').version
 
 let initialized = false
@@ -41,10 +40,7 @@ module.exports = function (mainWindow) {
 
     autoUpdater.on('update-downloaded', function (ev, err) {
         mainWindow.webContents.send('console', 'Update downloaded');
-        setImmediate(() => {
-            electron.app.removeAllListeners("window-all-closed");
-            autoUpdater.quitAndInstall();
-        });
+        // autoUpdater.quitAndInstall();
     });
 
     autoUpdater.on('before-quit-for-update', function () {
