@@ -41,7 +41,10 @@ module.exports = function (mainWindow) {
 
     autoUpdater.on('update-downloaded', function (ev, err) {
         mainWindow.webContents.send('console', 'Update downloaded');
-        // autoUpdater.quitAndInstall();
+        setImmediate(() => {
+            electron.app.removeAllListeners("window-all-closed");
+            autoUpdater.quitAndInstall();
+        });
     });
 
     autoUpdater.on('before-quit-for-update', function () {
