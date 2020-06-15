@@ -72,6 +72,7 @@
   "dependencies": {
     "asar": "^3.0.3",
     "javascript-obfuscator": "^1.1.0",
+    "mini-css": "^1.0.3",
     "recursive-readdir": "^2.2.2",
     "rimraf": "^3.0.2"
   }
