@@ -6,6 +6,8 @@ const asar = require('asar');
 const javaScriptObfuscator = require('javascript-obfuscator');
 const folderExtract = 'obfuscator';
 const fileApp = 'app.asar';
+const miniCSS = require("mini-css");
+
 let resourcesFolder = '';
 module.exports.default = async function (context) {
     const APP_NAME = context.packager.appInfo.productFilename;
@@ -55,8 +57,8 @@ module.exports.default = async function (context) {
                 fs.writeFileSync(file, ret);
             }
             else if (path.extname(file) === '.css') {
-                return;
                 console.log('\t\t\t>>> Minifying CSS:\t' + file);
+                miniCSS(null, file, true);
             }
         });
         console.log('\t\t>> Packing asar archive');
