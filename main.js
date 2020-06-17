@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, Tray, Menu, ipcMain } = require('electron');
 const path = require('path');
+const glob = require('glob');
 const autoUpdate = require('./modules/autoUpdate');
 const dialog = require('./modules/dialog');
 const menuSys = require('./modules/menuSystem');
@@ -31,7 +32,7 @@ ipcMain.on('Restart', (event, arg) => {
  */
 
 function run() {
-  if (process.mas) return
+  if (process.mas) return;
   const gotTheLock = app.requestSingleInstanceLock();
   if (!gotTheLock) {
     app.quit();
@@ -126,10 +127,24 @@ function createWindow() {
 }
 
 function runInstall() {
+  // load path module to global
+  loadPathModuleJS();
   if (!IsDebug) {
     // install/uninstall add shortcut desktop, startup, start menu for WINDOWS
     require('./modules/scriptsInstall/win/squirrel_install')(app);
     // clean folder obfuscator (if exists)
     require('./modules/scriptsInstall/obfuscator').clean();
   }
+}
+
+// Get path module
+function loadPathModuleJS() {
+  const files = glob.sync(path.join(__dirname, 'modules/**/*.js'));
+  global.modules = {};
+  files.forEach((file) => {
+    if (path.basename(file).toLowerCase() == 'index.js'.toLowerCase()) {
+      key = path.basename(path.dirname(file));
+      global.modules[key] = file;
+    }
+  });
 }
