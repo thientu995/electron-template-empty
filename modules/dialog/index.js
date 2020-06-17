@@ -1,22 +1,14 @@
+console.log(`> Module: ${__filename}`);
 const { remote, dialog, BrowserWindow } = require('electron');
+console.log(__dirname)
 const title = require('../../package.json').displayName;
 let currentDialog = null;
 let currentWindow = null;
-function init() {
-    if (remote) {
-        currentDialog = remote.dialog;
-        currentWindow = remote.BrowserWindow.getFocusedWindow();
-    }
-    else if (BrowserWindow) {
-        currentDialog = dialog;
-        currentWindow = BrowserWindow.getFocusedWindow();
-        if (!currentWindow && BrowserWindow.getAllWindows().length > 0) {
-            currentWindow = BrowserWindow.getAllWindows()[0];
-        }
-    }
-}
 
-module.exports = class {
+class Dialog {
+    constructor(){
+
+    }
     static message(option) {
         init();
         return currentDialog.showMessageBox(currentWindow, option);
@@ -68,3 +60,20 @@ module.exports = class {
         return showDialog;
     }
 }
+
+
+function init() {
+    if (remote) {
+        currentDialog = remote.dialog;
+        currentWindow = remote.BrowserWindow.getFocusedWindow();
+    }
+    else if (BrowserWindow) {
+        currentDialog = dialog;
+        currentWindow = BrowserWindow.getFocusedWindow();
+        if (!currentWindow && BrowserWindow.getAllWindows().length > 0) {
+            currentWindow = BrowserWindow.getAllWindows()[0];
+        }
+    }
+}
+
+module.exports = Dialog;
