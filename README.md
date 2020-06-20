@@ -19,6 +19,8 @@ cd electron-template-empty
 # Install dependencies and run the app
 npm install && npm start
 ```
+![1](https://user-images.githubusercontent.com/15050790/85195905-963a5a80-b300-11ea-8b0a-80abc8e55572.png)
+
 
 ## UI:
 ### See more [MacOS](https://github.com/thientu995/electron-template-empty/issues/1)
