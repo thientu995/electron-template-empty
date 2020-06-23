@@ -3,7 +3,7 @@ module.exports = function (app) {
     if (process.platform == 'darwin' || process.argv.length === 1) {
         return false;
     }
-    
+
     const ChildProcess = require('child_process');
     const path = require('path');
     const appFolder = path.resolve(process.execPath, '..');
@@ -42,6 +42,7 @@ module.exports = function (app) {
             // Remove desktop and start menu shortcuts
             spawnUpdate(['--removeShortcut', exeName]);
             app.quit();
+            require('rimraf').sync(app.getPath('userData'));
             return true;
         case '--squirrel-obsolete':
             // This is called on the outgoing version of your app before
